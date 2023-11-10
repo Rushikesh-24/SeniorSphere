@@ -39,8 +39,8 @@ const page = () => {
         </div>
         <div id="steps" className='mt-28 border-black flex items-center flex-col'>
             <img src="/Assets/Human_footprints.svg" alt="" className='w-40 mt-2 rounded-full  border-gray-500'/>
-            <p id='Stepcount' className='mt-8 gap-1'>{stepCount} <span>steps</span></p>
-            <p>{10000-stepCount} <span>Steps remaining</span></p>
+            <p id='Stepcount' className='mt-8 gap-1 '>{stepCount} <span>steps</span></p>
+            <p className='text-gray-400 text-sm'>{10000-stepCount} <span>Steps remaining</span></p>
         </div>
     </div>
     
