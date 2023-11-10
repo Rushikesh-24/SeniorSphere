@@ -6,3 +6,24 @@ body{
   margin: 0;
   padding: 0;
 }
+
+.social{
+  height: 100%; 
+  width: 100vw;
+}
+
+.social-left{
+  height: 900px;
+  width: 30%;
+  flex-basis: 30%;
+  border-right: 2px solid black ;
+}
+.social-right{
+  height: 100%;
+  width: 30%;
+}
+
+.ann{
+  height: 50vw; 
+  width: 100vw;
+}

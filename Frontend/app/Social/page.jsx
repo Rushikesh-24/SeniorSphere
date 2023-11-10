@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Social = () => {
+const social = () => {
   return (
-    <div>Social</div>
+    <div>
+      <h1> Use the Mobile Version of the Website to use the chat </h1>
+    </div>
   )
 }
 
-export default Social
+export default social
