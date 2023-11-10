@@ -6,10 +6,9 @@ const Footer = () => {
         <div id="footer" className='flex flex-col justify-center items-center gap-10 mt-20'>
         <div id="footerlogo" className='flex items-center gap-5'>
             <img src="/Assets/logo.svg" alt="" className='w-40'/>
-            <p className='text-2xl font-semibold '>UTOPIA STORE</p></div>
+            <p className='text-2xl font-semibold '>SENIOR SPHERE</p></div>
             <ul id="footerlinks" className='flex list-none gap-10 text-lg'>
                 <li className='cursor-pointer '>Company</li>
-                <li className='cursor-pointer '>Products</li>
                 <li className='cursor-pointer '>Offices</li>
                 <li className='cursor-pointer '>About</li>
                 <li className='cursor-pointer '>Contact</li>
