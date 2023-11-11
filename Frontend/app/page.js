@@ -1,8 +1,11 @@
+"use client"
 import Link from "next/link"
-
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { withRouter } from 'next/router';
 
 export default function Home() {
-  return (
+  return(
     <>
   <div>
     Welcome to Elderly Care
@@ -10,4 +13,5 @@ export default function Home() {
   </div>
     </>
   )
-}
+};
+
