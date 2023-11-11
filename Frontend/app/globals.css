@@ -27,3 +27,11 @@ body{
   height: 50vw; 
   width: 100vw;
 }
+
+.chat {
+  border: 2px solid black ;
+}
+
+.section {
+  padding-top: 662px;
+}
