@@ -10,16 +10,16 @@ const ChatComponent = () => {
       return; // Don't send empty messages
     }
 
-    setMessages([...messages, { text: message, sender: { name: '', profilePicture: '' } }]);
+    setMessages([...messages, { text: message, sender: { name: 'User', profilePicture: '' } }]);
     setMessage('');
   };
 
   // Dummy data for the sender information if no messages received
-  const defaultSender = { name: 'Harsh', profilePicture: '/Assets/pp.png' };
+  const defaultSender = { name: 'ChatBot', profilePicture: '/Assets/pp.png' };
 
   return (
     <div className="flex flex-col h-screen w-screen">
-       <div className="flex flexc items-center p-4 bg-gray-200">
+       <div className="flex items-center p-4 bg-gray-200">
         <img
           src={messages.length > 0 ? messages[messages.length - 1].sender.profilePicture : defaultSender.profilePicture}
           alt="Profile"
