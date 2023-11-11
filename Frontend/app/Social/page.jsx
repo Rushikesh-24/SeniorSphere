@@ -1,11 +1,22 @@
-import React from 'react'
+import React from 'react';
+import Empty from '../components/Empty';
+import ChatListHeader from '../components/ChatListHeader';
+import Image from 'next/image';
 
-const social = () => {
+const page = () => {
   return (
     <div>
-      <h1> Use the Mobile Version of the Website to use the chat </h1>
+    <div className=' flex grid-cols-main h-screen w-screen max-h-screen '>
+      <div>
+        <ChatListHeader />
+        <div className='chat section'></div>
+      </div>
+      <Empty />
     </div>
+    
+    </div>
+    
   )
 }
 
-export default social
+export default page
