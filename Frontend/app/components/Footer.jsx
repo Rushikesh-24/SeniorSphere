@@ -15,7 +15,7 @@ const Footer = () => {
             </ul>
             <div id="copyright" className=' flex flex-col items-center gap-7 w-screen mb-7 text-lg'>
                 <hr className=' w-10/12 border-none rounded-md h-1 bg-gray-200 '/>
-                <p>Copyrigth @2023 -All Rights Reserved</p>
+                <p>Copyright @2023 -All Rights Reserved</p>
             </div>
             </div>
             </>

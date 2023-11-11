@@ -14,7 +14,7 @@ const login = () => {
         </div>
         <button className='w-4/5 h-12 bg-red-600 text-white rounded-xl flex items-center justify-center mt-6 mx-16'>Continue</button>
         
-            <Link href="/Signup">Visit Signup Page</Link>
+            <Link href="/Signup" className="mx-72 hover:text-red-500 hover:underline">Visit Signup Page</Link>
         <p id='login?' className='text-gray-400 w-4/5 mx-44 mt-10'>Don't have a account ?
            </p>
         <div id="agree" className='flex mx-36 w-4/5'>
