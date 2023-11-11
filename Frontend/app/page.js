@@ -1,11 +1,17 @@
+"use client"
 import Link from "next/link"
-
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { withRouter } from 'next/router';
 
 export default function Home() {
-  return (
+  return(
     <>
-    <h1>hello</h1>
-    <Link href="/Signup"> Click here to sign up </Link>
+  <div>
+    Welcome to Elderly Care
+    <p>Please Sign in to enjoy all the fun.</p>
+  </div>
     </>
   )
-}
+};
+
