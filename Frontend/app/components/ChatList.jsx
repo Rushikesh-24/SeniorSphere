@@ -6,7 +6,7 @@ const Chatlist = () => {
       <>
       <ChatlistHeader />
       <div className=' border-l-neutral-900 h-20 w-20'>
-        Luffy
+      
       </div>
       <SearchBar />
       <List />
