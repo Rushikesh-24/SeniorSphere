@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const ChatListHeader = () => {
@@ -7,8 +8,7 @@ const ChatListHeader = () => {
          <div className='cursor-pointer'>
             <p>CONTACTS</p>
          </div>
-         <div className='flex gap-6'>
-
+         <div className='flex gap-3'>
          </div>
     </div>
   )
