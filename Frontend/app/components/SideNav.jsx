@@ -11,7 +11,7 @@ const SideNav = ({ isOpen, toggleSideNav }) => {
       </div>
       {/* Add your navigation links here */}
       <a href="/" className="block px-4 py-2 hover:bg-gray-500">Home</a>
-      <a href="/Health" className="block px-4 py-2 hover:bg-gray-500">Health</a>
+      <a href="/Social" className="block px-4 py-2 hover:bg-gray-500">Social</a>
       <Link href="/Contact" className="block px-4 py-2 hover:bg-gray-500">Contact</Link>
     </div>
   );

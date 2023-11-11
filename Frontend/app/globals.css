@@ -33,5 +33,10 @@ body{
 }
 
 .section {
-  padding-top: 662px;
+  height: 662px;
+  width: fit-content;
+}
+
+.section1 {
+  margin-top: 66px;
 }
