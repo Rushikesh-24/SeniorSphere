@@ -1,5 +1,9 @@
+// Import the Web Bluetooth API
 "use client"
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from "react";
+
+const { requestDevice } = navigator.bluetooth;
 
 const Page = () => {
   const [heartRate, setHeartRate] = useState(0);
@@ -37,21 +41,30 @@ const Page = () => {
     return () => clearInterval(intervalId);
   }, [connected]);
 
-  const connectToSmartwatch = () => {
-    // Simulate connecting to a smartwatch and fetching heart rate data
-    // Replace this with actual logic to connect to a smartwatch
-    // and retrieve heart rate data
+  const connectToSmartwatch = async () => {
+    // Check if the browser supports the Web Bluetooth API
+if ('bluetooth' in navigator) {
+  // Request Bluetooth device
+  navigator.bluetooth.requestDevice({ filters: [{ services: ['heart_rate'] }] })
+    .then(device => {
+      // Device is selected, connect and interact with it
+      return device.gatt.connect();
+    })
+    .then(server => {
+      // Access the Bluetooth service and characteristics
+      return server.getPrimaryService('heart_rate');
+    })
+    .then(service => {
+      // Access characteristics and interact with the device
+      // ...
+    })
+    .catch(error => {
+      console.error('Bluetooth error:', error);
+    });
+} else {
+  console.error('Web Bluetooth API not supported in this browser.');
+}
 
-    // Show connecting message
-    alert('Connecting to smartwatch...');
-
-    // Simulate delay (e.g., 5 seconds)
-    setTimeout(() => {
-      // Update state to indicate connected
-      setConnected(true);
-      // Show connected message
-      alert('Connected to smartwatch!');
-    }, 5000);
   };
 
   const disconnectFromSmartwatch = () => {
@@ -82,10 +95,9 @@ const Page = () => {
           <p id='Stepcount' className='mt-8 gap-1 '>{stepCount} <span>steps</span></p>
           <p className='text-gray-400 text-sm'>{10000 - stepCount} <span>Steps remaining</span></p>
         </div>
-        
       </div>
       <div id="button" className='flex justify-center items-center'>
-      {!connected ? (
+        {!connected ? (
           <button onClick={connectToSmartwatch} className='bg-blue-500 text-white p-2 mt-8 rounded-md'>
             Connect to Smartwatch
           </button>
@@ -93,7 +105,8 @@ const Page = () => {
           <button onClick={disconnectFromSmartwatch} className='bg-red-500 text-white p-2 mt-8 rounded-md'>
             Disconnect
           </button>
-        )}</div>
+        )}
+      </div>
     </>
   );
 };
