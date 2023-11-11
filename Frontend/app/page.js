@@ -7,7 +7,10 @@ import { withRouter } from 'next/router';
 export default function Home() {
   return(
     <>
-    <Link href="/Login">Login</Link>
+  <div>
+    Welcome to Elderly Care
+    <p>Please Sign in to enjoy all the fun.</p>
+  </div>
     </>
   )
 };
