@@ -10,37 +10,6 @@ const Page = () => {
   const [stepCount, setStepCount] = useState(0);
   const [connected, setConnected] = useState(false);
 
-  useEffect(() => {
-    // Simulate fetching step count data from an API
-    const fetchStepCountData = async () => {
-      // Simulating API call
-      return 4000; // Replace with actual data
-    };
-
-    const updateData = () => {
-      // Simulate fetching heart rate data from an API
-      // Generate a random heart rate within a normal range (e.g., 60-100 bpm)
-      const randomHeartRate = Math.floor(Math.random() * (100 - 60 + 1) + 60);
-
-      // Update state only if connected
-      if (connected) {
-        setHeartRate(randomHeartRate);
-      }
-
-      // Simulate fetching step count data from an API
-      fetchStepCountData().then((stepCountData) => {
-        setStepCount(stepCountData);
-      });
-    };
-
-    // Update data initially and set interval for periodic updates
-    updateData();
-    const intervalId = setInterval(updateData, 30000); // Update every 30 seconds
-
-    // Cleanup interval on component unmount
-    return () => clearInterval(intervalId);
-  }, [connected]);
-
   const connectToSmartwatch = async () => {
     // Check if the browser supports the Web Bluetooth API
 if ('bluetooth' in navigator) {
