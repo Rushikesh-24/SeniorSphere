@@ -11,30 +11,49 @@ const Page = () => {
   const [connected, setConnected] = useState(false);
 
   const connectToSmartwatch = async () => {
-    // Check if the browser supports the Web Bluetooth API
-if ('bluetooth' in navigator) {
-  // Request Bluetooth device
-  navigator.bluetooth.requestDevice({ filters: [{ services: ['heart_rate'] }] })
-    .then(device => {
-      // Device is selected, connect and interact with it
-      return device.gatt.connect();
-    })
-    .then(server => {
-      // Access the Bluetooth service and characteristics
-      return server.getPrimaryService('heart_rate');
-    })
-    .then(service => {
-      // Access characteristics and interact with the device
-      // ...
-    })
-    .catch(error => {
+    try {
+      // Check if the browser supports the Web Bluetooth API
+      if ('bluetooth' in navigator) {
+        // Request Bluetooth device
+        const device = await navigator.bluetooth.requestDevice({ filters: [{ services: ['heart_rate'] }] });
+  
+        // Connect to the Bluetooth device
+        const server = await device.gatt.connect();
+  
+        // Access the Heart Rate service
+        const service = await server.getPrimaryService('heart_rate');
+  
+        // Access the Heart Rate Measurement characteristic
+        const characteristic = await service.getCharacteristic('heart_rate_measurement');
+  
+        // Start notifications for Heart Rate Measurement
+        await characteristic.startNotifications();
+  
+        // Event listener for receiving heart rate data
+        characteristic.addEventListener('characteristicvaluechanged', handleHeartRateData);
+  
+        console.log('Connected to heart rate monitor. Waiting for data...');
+  
+      } else {
+        console.error('Web Bluetooth API not supported in this browser.');
+      }
+    } catch (error) {
       console.error('Bluetooth error:', error);
-    });
-} else {
-  console.error('Web Bluetooth API not supported in this browser.');
-}
-
+    }
   };
+  
+  // Function to handle incoming heart rate data
+  const handleHeartRateData = (event) => {
+    const value = event.target.value;
+    const heartRate = value.getUint8(1); // Extract heart rate value from the DataView
+  
+    console.log('Heart Rate:', heartRate);
+    // You can now use the 'heartRate' variable to handle the heart rate data in your application
+  };
+  
+  // Call the function to connect to the smartwatch
+  connectToSmartwatch();
+  
 
   const disconnectFromSmartwatch = () => {
     // Simulate disconnecting from a smartwatch
